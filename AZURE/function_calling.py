@@ -4,8 +4,8 @@ from openai import AzureOpenAI
 import json
 
 def main():
-    endpoint = "https://crashcoursemodelling231.openai.azure.com/"
-    apikey = "860d56a4ff7441a785c5dc6cd159fe39"
+    endpoint = 
+    apikey = 
 
     client = AzureOpenAI(
     api_key=apikey,
@@ -47,13 +47,22 @@ def main():
         get_weather(location)
         
     def get_weather(location):
-        url = ""
+        url = "https://api.openweathermap.org/data/2.5/weather?q="+location+"&appid="
+        response = requests.get(url)
+        get_response = response.json()
+        latitude = get_response["coord"]["lat"]
+        longitude = get_response["coord"]["lon"]
+        print(f"latitude:{latitude}")
+        print(f"longitude:{longitude}")
+        
+        url_final = " https://api.openweathermap.org/data/2.5/weather?q="+str(latitude)+"&lon="+str(longitude)+"&appid="
+        final_response = requests.get(url_final)
+        final_response_json = final_response.json()
+        weather = final_response_json["weather"][0]["description"]
+        print(f"weather condition: {weather}")
     
     
     
 if __name__ =="__main__":
     main()
     
-    6a3e82d38d33b04c4476cadc75a4af97
-    https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={"6a3e82d38d33b04c4476cadc75a4af97"}
-    https://api.openweathermap.org/data/2.5/weather?q={city name},{country code}&appid={API key}
