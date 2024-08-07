@@ -1,5 +1,5 @@
-endpoint = "https://crashcoursemodelling231.openai.azure.com/"
-apikey = "860d56a4ff7441a785c5dc6cd159fe39"
+endpoint = 
+apikey = 
 
 import os
 from openai import AzureOpenAI
